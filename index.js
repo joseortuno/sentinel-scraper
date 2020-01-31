@@ -36,8 +36,6 @@ module.exports = class Scraper {
   }
 
   static for(urls, expression) {
-
-    
     if (arguments.length === 0) throw ReferenceError(`The static method for need parameters: urls and expression.`);
     if (urls.length === 0) throw ReferenceError(`There aren't elements in the array urls.`);
     if (!(urls instanceof Array)) throw TypeError(`Urls expect a array. ${urls} is a ${typeof (urls)}.`);
