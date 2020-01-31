@@ -1,7 +1,7 @@
 {
-  "name": "he-man",
+  "name": "scraper",
   "version": "1.0.0",
-  "description": "",
+  "description": "scraping tool",
   "main": "index.js",
   "scripts": {
     "test": "npx mocha *.spec.js --timeout 100000",
