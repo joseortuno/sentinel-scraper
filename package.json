@@ -1,5 +1,5 @@
 {
-  "name": "scraper",
+  "name": "scrapper",
   "version": "1.0.0",
   "description": "scraping tool",
   "main": "index.js",
