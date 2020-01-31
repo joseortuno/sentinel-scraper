@@ -1,5 +1,5 @@
 {
-  "name": "scrapper",
+  "name": "sentinel-scraper",
   "version": "1.0.0",
   "description": "scraping tool",
   "main": "index.js",
