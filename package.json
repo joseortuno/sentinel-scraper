@@ -1,0 +1,22 @@
+{
+  "name": "he-man",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha *.spec.js --timeout 100000",
+    "test:debug": "npx mocha inspect *.spec.js --timeout 100000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  },
+  "dependencies": {
+    "jsdom": "^15.2.1",
+    "progress": "^2.0.3",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
