@@ -5,7 +5,7 @@
 Call to scraping tool:
 
 ```javascript
-const Scraper = require('Scraper');
+const Scraper = require('sentinel-scraper');
 ```
 
 Create a instance for scraping an url:
@@ -81,7 +81,7 @@ const data = scraping.select('#selector', item => {
 
 const data = {};
 scraping.select('#selector', (item, index) => {
-  data.index = [
+  data[index] = [
     item.children.item(0).textContent,
     item.children.item(0).src,
     item.children.item(0).href,
