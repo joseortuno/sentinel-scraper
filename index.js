@@ -29,8 +29,8 @@ module.exports = class Scraper {
     const results = this.document.querySelectorAll(selector);
 
     const data = [];
-    results.forEach(result => {
-      data.push(expression(result));
+    results.forEach((result, index) => {
+      data.push(expression(result, index));
     })
     return data;
   }

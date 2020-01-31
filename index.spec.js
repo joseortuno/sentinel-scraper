@@ -19,9 +19,10 @@ describe('Scraper - Scraping tool', () => {
 
     it('Should iterate over the item to be able to scraped', () => {
       const heman = new Scraper('https://www.he-man.org/collecting/toycollection.php?id=1');
-      const data = [];
-      heman.select('.tblrow', item => {
-        data.push(item.children.item(1).children.item(0).href);
+      const data = {};
+      heman.select('.tblrow', (item, index) => {
+        expect(index).to.exist;
+        data[index] = [item.children.item(1).children.item(0).href];
       });
       expect(data).to.exist;
     });
