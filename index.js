@@ -35,12 +35,13 @@ module.exports = class Scraper {
     return data;
   }
 
-  static for(urls, expression) {
+  static for(urls, expression, completeUrl) {
     if (arguments.length === 0) throw ReferenceError(`The static method for need parameters: urls and expression.`);
     if (urls.length === 0) throw ReferenceError(`There aren't elements in the array urls.`);
     if (!(urls instanceof Array)) throw TypeError(`Urls expect a array. ${urls} is a ${typeof (urls)}.`);
     if (!arguments[1]) throw ReferenceError(`The static method for need a expression.`);
     if (typeof (expression) !== 'function') throw TypeError(`Expression expect a function. ${expression} is a ${typeof (expression)}.`);
+    if (completeUrl && !URL_REGEX.test(completeUrl)) throw ReferenceError('The url to concatenate is not a url format.');
 
     const bar = new ProgressBar('Scraper.for() run [:bar] :percent :etas', {
       complete: '▓',
@@ -51,6 +52,9 @@ module.exports = class Scraper {
     
     urls.forEach((url, index) => {
       bar.tick();
+
+      if (completeUrl) url = completeUrl.concat(url)
+
       if (!URL_REGEX.test(url)) throw TypeError(`The element ${index} of the array is not a url.`);
 
       const scraper = new Scraper(url);

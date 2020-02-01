@@ -11,42 +11,71 @@ describe('Scraper - Scraping tool', () => {
       expect(heman.document instanceof Object).to.be.true;
     });
 
-    it('Should return an array of elements', () => {
-      const heman = new Scraper('https://www.he-man.org/collecting/toycollection.php?id=1');
-      const selector = heman.select('.tblrow', item => item.children.item(1).children.item(0).href);
-      expect(selector).to.exist;
-    });
+    describe('select method', () => {
+      let heman;
 
-    it('Should iterate over the item to be able to scraped', () => {
-      const heman = new Scraper('https://www.he-man.org/collecting/toycollection.php?id=1');
-      const data = {};
-      heman.select('.tblrow', (item, index) => {
-        expect(index).to.exist;
-        data[index] = [item.children.item(1).children.item(0).href];
-      });
-      expect(data).to.exist;
-    });
-
-    it('Should go throuth an array of urls ', () => {
-      const heman = new Scraper('https://www.he-man.org/collecting/toycollection.php?id=1');
-      const urls = heman.select('.tblrow', item => item.children.item(1).children.item(0).href);
-
-      const generalUrl = 'https://www.he-man.org/collecting/';
-      urls.forEach((url, index) => {
-        urls[index] = generalUrl.concat(url);
+      before(() => {
+        heman = new Scraper('https://www.he-man.org/collecting/toycollection.php?id=1');
       });
 
-      const selectUrls = urls.slice(0, 50);
+      it('Should return an array of elements', () => {
+        const selector = heman.select('.tblrow', item => item.children.item(1).children.item(0).href);
+        expect(selector).to.exist;
+      });
 
-      const data = [];
-      Scraper.for(selectUrls, scraper => {
-        const detail = scraper.select('#collect_rightcenter', item => {
-          return item.children.item(0).children.item(1).children.item(0).children.item(0).children.item(0).children.item(0).children.item(0).children.item(0).children.item(1).textContent
+      it('Should iterate over the item to be able to scraped', () => {
+        const data = {};
+        heman.select('.tblrow', (item, index) => {
+          expect(index).to.exist;
+          data[index] = [item.children.item(1).children.item(0).href];
         });
-        data.push(detail);
+        expect(data).to.exist;
+
       });
 
-      expect(data).to.exist;
+    });
+
+    describe('static for meyhod', () => {
+      let heman, urls, completeUrls = [];
+      const generalUrl = 'https://www.he-man.org/collecting/';
+
+      before(() => {
+        heman = new Scraper('https://www.he-man.org/collecting/toycollection.php?id=1');
+        urls = heman.select('.tblrow', item => item.children.item(1).children.item(0).href);
+
+        urls.forEach(url => {
+          completeUrls.push(generalUrl.concat(url));
+        });
+
+      })
+
+      it('Should go throuth an array of urls ', () => {
+        const data = [];
+        const selectUrls = completeUrls.slice(0, 5);
+        Scraper.for(selectUrls, scraper => {
+          const detail = scraper.select('#collect_rightcenter', item => {
+            return item.children.item(0).children.item(1).children.item(0).children.item(0).children.item(0).children.item(0).children.item(0).children.item(0).children.item(1).textContent
+          });
+          data.push(detail);
+        });
+
+        expect(data).to.exist;
+      });
+
+      it('Should work by concatenating the url', () => {
+        const data = [];
+        const selectUrls = urls.slice(0, 5);
+        Scraper.for(selectUrls, scraper => {
+          const detail = scraper.select('#collect_rightcenter', item => {
+            return item.children.item(0).children.item(1).children.item(0).children.item(0).children.item(0).children.item(0).children.item(0).children.item(0).children.item(1).textContent
+          });
+          data.push(detail);
+        }, generalUrl);
+
+        expect(data).to.exist;
+
+      });
+
     });
 
   });
@@ -127,6 +156,12 @@ describe('Scraper - Scraping tool', () => {
       expect(() => {
         Scraper.for(new Array('1'), true);
       }).to.throw(TypeError, 'Expression expect a function. true is a boolean.');
+    });
+
+    it('Scraper - method static for - parameter: COMPLETE URL. Optional parameter. Should return error when not insert a url with its fomat', () => {
+      expect(() => {
+        Scraper.for(new Array('1'), () => { }, true);
+      }).to.throw(ReferenceError, 'The url to concatenate is not a url format.');
     });
 
   });
