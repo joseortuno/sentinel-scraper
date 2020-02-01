@@ -76,6 +76,17 @@ describe('Scraper - Scraping tool', () => {
 
       });
 
+      it.only('Should return the parameters index and url', () => {
+        const selectUrls = urls.slice(0, 5);
+        const expectUrls = completeUrls.slice(0, 5);
+        Scraper.for(selectUrls, (scraper, index, url) => {
+          expect(scraper instanceof Object).to.be.true;
+          expect(index).to.exist;
+          expect(expectUrls[index]).to.equal(url);
+        }, generalUrl);
+        
+      });
+
     });
 
   });

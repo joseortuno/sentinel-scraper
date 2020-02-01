@@ -58,7 +58,7 @@ module.exports = class Scraper {
       if (!URL_REGEX.test(url)) throw TypeError(`The element ${index} of the array is not a url.`);
 
       const scraper = new Scraper(url);
-      expression(scraper);
+      expression(scraper, index, url);
     });
 
   }
