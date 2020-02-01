@@ -1,5 +1,7 @@
 # Scraper is a tool for scraping web througt of url and selectors
 
+v. 1.0.1
+
 ## Usage
 
 Call to scraping tool:
@@ -114,13 +116,14 @@ scraping.select('#selector', (item, index) => {
 It is a static method for to scrape an array of urls. It is a factory of new Scraper();
 
 ```javascript
-Scraper.for(urls, expression); // It is necesary insert the parameters.
+Scraper.for(urls, expression, completeUrl); // It is necesary insert the parameters.
 ```
 
 Parameters:
 
 1. urls: array of urls.
 2. expression (callback): currentValue (instance of Scrape for url).
+3. completeUrl (optional): complete the elements of array.
 
 ```javascript
 const urls = [
@@ -131,7 +134,8 @@ const urls = [
   'http//:www.example.com/product/5'
 ];
 
-Scraper.for(urls, scrape => {
+Scraper.for(urls, (scrape, index, url) => {
+  // the url return url parameter extracted
   // for example: scrape.select();
 });
 ````

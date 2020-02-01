@@ -76,7 +76,7 @@ describe('Scraper - Scraping tool', () => {
 
       });
 
-      it.only('Should return the parameters index and url', () => {
+      it.only('Should return the parameters index and return url', () => {
         const selectUrls = urls.slice(0, 5);
         const expectUrls = completeUrls.slice(0, 5);
         Scraper.for(selectUrls, (scraper, index, url) => {
@@ -84,7 +84,7 @@ describe('Scraper - Scraping tool', () => {
           expect(index).to.exist;
           expect(expectUrls[index]).to.equal(url);
         }, generalUrl);
-        
+
       });
 
     });
