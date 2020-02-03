@@ -1,6 +1,6 @@
 # Scraper is a tool for scraping web througt of url and selectors
 
-v. 1.0.1
+v. 1.0.3
 
 ## Usage
 
