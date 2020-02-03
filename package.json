@@ -1,14 +1,14 @@
 {
   "name": "sentinel-scraper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "scraping tool",
   "main": "index.js",
   "scripts": {
     "test": "npx mocha *.spec.js --timeout 100000",
     "test:debug": "npx mocha inspect *.spec.js --timeout 100000"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["scraper", "scraping", "tool", "simple"],
+  "author": "Jose Ortuño",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
@@ -18,5 +18,10 @@
     "jsdom": "^15.2.1",
     "progress": "^2.0.3",
     "xmlhttprequest": "^1.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseortuno/sentinel-scraper.git"
+  },
+  "homepage": "https://github.com/joseortuno/sentinel-scraper"
 }
