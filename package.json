@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx mocha ./build/*.spec.js --timeout 100000",
-    "test:debug": "npx mocha inspect ./build/*.spec.js --timeout 100000"
+    "test:ts": "mocha -r ts-node/register src/*.spec.ts",
+    "test:debug": "npx mocha inspect ./build/*.spec.js --timeout 100000",
+    "build": "--target "
   },
   "keywords": [
     "scraper",
@@ -15,12 +17,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/jsdom": "^16.2.1",
+    "@types/mocha": "^7.0.2",
     "@types/node": "^13.11.1",
     "chai": "^4.2.0",
-    "mocha": "^6.2.2"
+    "mocha": "^6.2.2",
+    "ts-node": "^8.8.2"
   },
   "dependencies": {
-    "@types/jsdom": "^16.2.1",
     "jsdom": "^15.2.1",
     "progress": "^2.0.3",
     "xmlhttprequest": "^1.8.0"

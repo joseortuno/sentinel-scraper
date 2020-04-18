@@ -1,11 +1,30 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "target": "es2015",
-      "removeComments": true,
-      "outDir": "./build"
-    },
-    "include": ["*"],
-    "baseUrl": "types",
-    "typeRoots": ["types"]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "sourceMap": true,
+    "pretty": true,
+    "outDir": "./build",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*",
+      ]
+    }
+  },
+  "include": [
+    "src/*.ts",
+    "src/valueObject/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "baseUrl": "types",
+  "typeRoots": [
+    "types"
+  ]
 }
