@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+/* const { expect } = require('chai');
 const Scraper = require('.');
 
 describe('Scraper - Scraping tool', () => {
@@ -177,4 +177,4 @@ describe('Scraper - Scraping tool', () => {
 
   });
 
-});
+}); */

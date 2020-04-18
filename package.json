@@ -4,17 +4,23 @@
   "description": "scraping tool",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha *.spec.js --timeout 100000",
-    "test:debug": "npx mocha inspect *.spec.js --timeout 100000"
+    "test": "npx mocha ./build/*.spec.js --timeout 100000",
+    "test:debug": "npx mocha inspect ./build/*.spec.js --timeout 100000"
   },
-  "keywords": ["scraper", "scraping", "tool"],
+  "keywords": [
+    "scraper",
+    "scraping",
+    "tool"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^13.11.1",
     "chai": "^4.2.0",
     "mocha": "^6.2.2"
   },
   "dependencies": {
+    "@types/jsdom": "^16.2.1",
     "jsdom": "^15.2.1",
     "progress": "^2.0.3",
     "xmlhttprequest": "^1.8.0"
