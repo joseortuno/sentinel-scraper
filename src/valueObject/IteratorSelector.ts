@@ -7,7 +7,7 @@ export class IteratorSelector {
         `Expression expect a function. ${expression} is a ${typeof expression}.`
       );
 
-    this.expression;
+    this.expression = expression;
   }
 
   public get(result: any, index: number, url?: string): Function {

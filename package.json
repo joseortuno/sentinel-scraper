@@ -4,10 +4,9 @@
   "description": "scraping tool",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha ./build/*.spec.js --timeout 100000",
-    "test:ts": "mocha -r ts-node/register src/*.spec.ts",
-    "test:debug": "npx mocha inspect ./build/*.spec.js --timeout 100000",
-    "build": "--target "
+    "build": "tsc -p tsconfig.json",
+    "test": "mocha -r ts-node/register src/*.spec.ts --timeout 100000",
+    "test:debug": "mocha inspect -r ts-node/register src/*.spec.ts --timeout 100000"
   },
   "keywords": [
     "scraper",
@@ -28,6 +27,7 @@
   "dependencies": {
     "jsdom": "^15.2.1",
     "progress": "^2.0.3",
+    "typescript": "^3.8.3",
     "xmlhttprequest": "^1.8.0"
   },
   "repository": {

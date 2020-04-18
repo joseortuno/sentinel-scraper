@@ -7,7 +7,7 @@ export class Selector {
         `Selector expect a string. ${selector} is a ${typeof selector}.`
       );
 
-    this.selector;
+    this.selector = selector;
   }
 
   public toString() {

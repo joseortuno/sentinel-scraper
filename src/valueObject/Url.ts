@@ -11,7 +11,7 @@ export class Url {
     if (!URL_REGEX.test(url))
       throw TypeError(`The instance of Scraper expect at parameter a url.`);
 
-    this.url;
+    this.url = url;
   }
 
   public toString() {

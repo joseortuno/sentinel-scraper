@@ -7,11 +7,12 @@ describe("Scraper - Scraping tool", () => {
       const heman = new Scraper(
         "https://www.he-man.org/collecting/toycollection.php?id=1"
       );
+
       expect(heman.document).to.exist;
-      expect(heman.document instanceof Object).to.be.true;
+      expect(heman.document instanceof Document).to.be.true;
     });
 
-    describe.only("select method", () => {
+    describe("select method", () => {
       let heman;
 
       before(() => {
@@ -21,10 +22,10 @@ describe("Scraper - Scraping tool", () => {
       });
 
       it("Should return an array of elements", () => {
-        const selector = heman.select(
-          ".tblrow",
-          (item) => item.children.item(1).children.item(0).href
-        );
+        const selector = heman.select(".tblrow", (item) => {
+          return item.children.item(1).children.item(0).href;
+        });
+
         expect(selector).to.exist;
       });
 
@@ -33,22 +34,26 @@ describe("Scraper - Scraping tool", () => {
 
         heman.select(".tblrow", (item, index) => {
           expect(index).to.exist;
+
           data[index] = [item.children.item(1).children.item(0).href];
         });
+
         expect(data).to.exist;
       });
     });
 
-    describe("static for meyhod", () => {
+    describe.only("static for method", () => {
       let heman,
         urls,
         completeUrls = [];
+
       const generalUrl = "https://www.he-man.org/collecting/";
 
       before(() => {
         heman = new Scraper(
           "https://www.he-man.org/collecting/toycollection.php?id=1"
         );
+
         urls = heman.select(
           ".tblrow",
           (item) => item.children.item(1).children.item(0).href
@@ -62,6 +67,7 @@ describe("Scraper - Scraping tool", () => {
       it("Should go throuth an array of urls ", () => {
         const data = [];
         const selectUrls = completeUrls.slice(0, 5);
+
         Scraper.for(selectUrls, (scraper) => {
           const detail = scraper.select("#collect_rightcenter", (item) => {
             return item.children
@@ -103,7 +109,7 @@ describe("Scraper - Scraping tool", () => {
         expect(data).to.exist;
       });
 
-      it.only("Should return the parameters index and return url", () => {
+      it("Should return the parameters index and return url", () => {
         const selectUrls = urls.slice(0, 5);
         const expectUrls = completeUrls.slice(0, 5);
         Scraper.for(selectUrls, (scraper, index, url) => {

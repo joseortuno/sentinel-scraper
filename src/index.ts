@@ -52,6 +52,7 @@ export class Scraper {
 
     listUrls.forEach((url, index) => {
       const scraper = new Scraper(url);
+      
       expression(scraper, index, url);
     });
   }
