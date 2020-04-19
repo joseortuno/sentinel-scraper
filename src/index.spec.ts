@@ -3,14 +3,27 @@ import { Scraper } from "./index";
 
 describe("Scraper - Scraping tool", () => {
 
-  describe.only("Test happy path Scraper tool", () => {
-    it.only("Should save as property the document of the DOM", () => {
-      const heman = new Scraper(
-        "https://www.he-man.org/collecting/toycollection.php?id=1"
-      );
-debugger
-      expect(heman.document instanceof Object).to.be.true;
-    });
+  describe("Test happy path Scraper tool", () => {
+
+    describe("Should save as property the document of the DOM", () => {
+      
+      it("In the case of heman web", () => {
+        const heman = new Scraper(
+          "https://www.he-man.org/collecting/toycollection.php?id=1"
+        );
+  
+        expect(heman.document).to.exist;
+      });
+
+      it("In the case of wegow web", () => {
+        const wegow = new Scraper(
+          "https://www.wegow.com/es-es/conciertos/geo/espana/barcelona/barcelona/?country=1&administrative_division=3128759&cities=3128760&page=1&page_size=20&type=0&sda=desktop-filters-events&region=es-es&mongo=true&validate=true"
+        );
+
+        expect(wegow.document).to.exist;
+      });
+
+    })
 
     describe("select method", () => {
       let heman;
