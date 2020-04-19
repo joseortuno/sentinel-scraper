@@ -40,4 +40,3 @@ var Scraper = (function () {
     return Scraper;
 }());
 exports.Scraper = Scraper;
-//# sourceMappingURL=index.js.map

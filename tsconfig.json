@@ -5,7 +5,7 @@
     "alwaysStrict": true,
     "moduleResolution": "node",
     "removeComments": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "pretty": true,
     "outDir": "./build",
     "baseUrl": ".",
@@ -21,7 +21,9 @@
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "build",
+    "src/*.spec.ts",
+    "src/valueObject/*.spec.ts"
   ],
   "baseUrl": "types",
   "typeRoots": [
