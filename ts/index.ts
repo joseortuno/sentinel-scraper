@@ -3,10 +3,10 @@ import { XMLHttpRequest } from "xmlhttprequest";
 import { JSDOM } from "jsdom";
 
 // Values
-import { Url } from "./valueObject/Url";
-import { ListUrls } from "./valueObject/ListUrls";
-import { Selector } from "./valueObject/Selector"
-import { IteratorSelector } from "./valueObject/IteratorSelector"
+import { Url } from "./src/valueObject/Url";
+import { ListUrls } from "./src/valueObject/ListUrls";
+import { Selector } from "./src/valueObject/Selector"
+import { IteratorSelector } from "./src/valueObject/IteratorSelector"
 
 export class Scraper {
   public document: Document;

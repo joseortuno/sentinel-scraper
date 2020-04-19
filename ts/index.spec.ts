@@ -65,7 +65,7 @@ describe("Scraper - Scraping tool", () => {
 
     });
 
-    describe.only("static for method", () => {
+    describe("static for method", () => {
       let heman,
         urls,
         completeUrls = [];

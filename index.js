@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var xmlhttprequest_1 = require("xmlhttprequest");
 var jsdom_1 = require("jsdom");
-var Url_1 = require("./valueObject/Url");
-var ListUrls_1 = require("./valueObject/ListUrls");
-var Selector_1 = require("./valueObject/Selector");
-var IteratorSelector_1 = require("./valueObject/IteratorSelector");
+var Url_1 = require("./src/valueObject/Url");
+var ListUrls_1 = require("./src/valueObject/ListUrls");
+var Selector_1 = require("./src/valueObject/Selector");
+var IteratorSelector_1 = require("./src/valueObject/IteratorSelector");
 var Scraper = (function () {
     function Scraper(url) {
         var _this = this;

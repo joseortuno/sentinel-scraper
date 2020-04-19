@@ -7,7 +7,7 @@
     "removeComments": true,
     "sourceMap": false,
     "pretty": true,
-    "outDir": "./build",
+    "outDir": ".",
     "baseUrl": ".",
     "paths": {
       "*": [
@@ -16,14 +16,13 @@
     }
   },
   "include": [
-    "src/*.ts",
-    "src/valueObject/*.ts"
+    "ts/*.ts",
+    "ts/src/valueObject/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "build",
-    "src/*.spec.ts",
-    "src/valueObject/*.spec.ts"
+    "ts/*.spec.ts",
+    "ts/src/valueObject/*.spec.ts"
   ],
   "baseUrl": "types",
   "typeRoots": [
