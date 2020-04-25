@@ -1,16 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Url_1 = require("./Url");
-var ListUrls = (function () {
-    function ListUrls(urlArray) {
-        this.urlArray = urlArray.map(function (url) {
-            var currentUrl = new Url_1.Url(url);
+const Url_1 = require("./Url");
+class ListUrls {
+    constructor(urlArray) {
+        this.urlArray = urlArray.map((url) => {
+            const currentUrl = new Url_1.Url(url);
             return currentUrl.toString();
         });
     }
-    ListUrls.prototype.get = function () {
+    get() {
         return this.urlArray;
-    };
-    return ListUrls;
-}());
+    }
+}
 exports.ListUrls = ListUrls;

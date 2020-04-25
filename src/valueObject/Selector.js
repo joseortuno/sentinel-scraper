@@ -1,12 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Selector = (function () {
-    function Selector(selector) {
+class Selector {
+    constructor(selector) {
         this.selector = selector;
     }
-    Selector.prototype.toString = function () {
+    toString() {
         return this.selector.toString();
-    };
-    return Selector;
-}());
+    }
+}
 exports.Selector = Selector;

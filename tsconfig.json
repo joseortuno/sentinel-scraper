@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
+    "module": "CommonJS",
+    "target": "ES6",
     "alwaysStrict": true,
     "moduleResolution": "node",
     "removeComments": true,
